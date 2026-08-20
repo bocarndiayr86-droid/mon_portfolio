@@ -48,10 +48,9 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: "right" });
 
 // --- Animation Typed.js adaptative (EN / FR) ---
 const typedStrings = {
-    en: ['Web Developer', 'Cybersecurity Enthusiast'],
-    fr: ['Développeur Web', 'Passionné de Cybersécurité']
+    en: ['Apprentice Web Developer', 'Cybersecurity Enthusiast'],
+    fr: ['Apprenti Développeur Web', 'Passionné de Cybersécurité']
 };
-
 let typedInstance = new Typed(".multiple-text", {
     strings: typedStrings.en,
     typeSpeed: 100,
