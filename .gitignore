@@ -1,0 +1,6 @@
+# Fichiers de configuration sensibles
+bd.php
+
+# Fichiers système
+.DS_Store
+Thumbs.db
