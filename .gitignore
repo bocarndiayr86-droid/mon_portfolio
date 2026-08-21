@@ -1,6 +1,17 @@
-# Fichiers de configuration sensibles
+# Fichiers de configuration et secrets (Mots de passe, API, BDD)
 bd.php
+config.php
+.env
 
-# Fichiers système
+# Fichiers système et éditeurs de code
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+
+# Fichiers de logs
+*.log
+
+# Dossiers temporaires
+tmp/
+temp/
