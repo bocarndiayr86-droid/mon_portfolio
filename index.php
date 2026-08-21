@@ -5,14 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="microsoft" content="notranslate">
     <title>Portfolio | Bocar Ndiaye</title>
-
-    <!-- Balises pour la prévisualisation du lien (WhatsApp / Réseaux Sociaux) -->
-    <meta property="og:title" content="carboportfolio.infinityfreeapp.com" />
-    <meta property="og:description" content="Portfolio de Bocar Ndiaye - Étudiant en TDSI & Cybersécurité" />
-    <meta property="og:url" content="https://carboportfolio.infinityfreeapp.com" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://carboportfolio.infinityfreeapp.com/img/photo_2026-08-04_00-02-32.jpg" />
 
     <!-- box icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -52,7 +47,7 @@
             </p>
             
             <div class="social-media">
-                <a href="https://github.com/bocarndiayr86-droide/mon_portfolio" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://github.com/bocarndiayr86-droid/mon_portfolio" target="_blank"><i class='bx bxl-github'></i></a>
                 <a href="https://www.instagram.com/bocar6464?igsh=MTg2NTNzZXh5aHd0MQ==&igsi=MTg2NTNzZXh5aHd0MQ==" target="_blank"><i class='bx bxl-instagram'></i></a>
                 <a href="https://www.linkedin.com/in/bocar-ndiaye-79819b3b0?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://wa.me/221778513611" target="_blank"><i class='bx bxl-whatsapp'></i></a>
@@ -181,23 +176,23 @@
             </div>
         </div>
     </section>
-
-    <!-- Contact Section Design -->
-    <section class="contact" id="contact">
-        <h2 class="heading"><span data-en="Contact " data-fr="Me ">Contact </span><span data-en="Me!" data-fr="Contacter!">Me!</span></h2>
-        <form action="traitement.php" method="POST">
-            <div class="input-box">
-                <input type="text" name="nom" placeholder="Full Name" data-placeholder-en="Full Name" data-placeholder-fr="Nom complet" required>
-                <input type="email" name="email" placeholder="Email Address" data-placeholder-en="Email Address" data-placeholder-fr="Adresse email" required>
-            </div>
-            <div class="input-box">
-                <input type="tel" name="telephone" placeholder="Mobile Number" data-placeholder-en="Mobile Number" data-placeholder-fr="Numéro de téléphone">
-                <input type="text" name="sujet" placeholder="Email Subject" data-placeholder-en="Email Subject" data-placeholder-fr="Sujet du message" required>
-            </div>
-            <textarea name="message" cols="30" rows="10" placeholder="Your Message" data-placeholder-en="Your Message" data-placeholder-fr="Votre message" required></textarea>
-            <input type="submit" value="Send Message" class="btn" id="submit-btn" data-en="Send Message" data-fr="Envoyer le message">
-        </form>
-    </section>
+                
+<!-- Contact Section Design -->
+<section class="contact" id="contact">
+    <h2 class="heading"><span data-en="Contact " data-fr="Me ">Contact </span><span data-en="Me!" data-fr="Contacter!">Me!</span></h2>
+   <form action="https://formspree.io/f/mvkplqdr" method="POST" target="_top">
+        <div class="input-box">
+            <input type="text" name="nom" placeholder="Full Name" data-placeholder-en="Full Name" data-placeholder-fr="Nom complet" required>
+            <input type="email" name="email" placeholder="Email Address" data-placeholder-en="Email Address" data-placeholder-fr="Adresse email" required>
+        </div>
+        <div class="input-box">
+            <input type="tel" name="telephone" placeholder="Mobile Number" data-placeholder-en="Mobile Number" data-placeholder-fr="Numéro de téléphone">
+            <input type="text" name="sujet" placeholder="Email Subject" data-placeholder-en="Email Subject" data-placeholder-fr="Sujet du message" required>
+        </div>
+        <textarea name="message" cols="30" rows="10" placeholder="Your Message" data-placeholder-en="Your Message" data-placeholder-fr="Votre message" required></textarea>
+        <input type="submit" value="Send Message" class="btn" id="submit-btn" data-en="Send Message" data-fr="Envoyer le message">
+    </form>
+</section>
 
     <!-- Footer Design -->
     <footer class="footer">
@@ -208,7 +203,7 @@
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
-
+    
     <!-- Scripts -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
