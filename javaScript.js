@@ -63,60 +63,85 @@ let typedInstance = new Typed(".multiple-text", {
 const langToggleBtn = document.querySelector("#lang-toggle");
 let currentLang = "en";
 
-langToggleBtn.addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "fr" : "en";
-    
-    // Mettre à jour le texte du bouton
-    langToggleBtn.textContent = currentLang === "en" ? "🇫🇷 FR" : "🇬🇧 EN";
+if (langToggleBtn) {
+    langToggleBtn.addEventListener("click", () => {
+        currentLang = currentLang === "en" ? "fr" : "en";
+        
+        // Mettre à jour le texte du bouton
+        langToggleBtn.textContent = currentLang === "en" ? "🇫🇷 FR" : "🇬🇧 EN";
 
-    // Traduire les éléments HTML
-    document.querySelectorAll("[data-en]").forEach(el => {
-        el.textContent = el.getAttribute(`data-${currentLang}`);
+        // Traduire les éléments HTML
+        document.querySelectorAll("[data-en]").forEach(el => {
+            el.textContent = el.getAttribute(`data-${currentLang}`);
+        });
+
+        // Traduire les placeholders
+        document.querySelectorAll("[data-placeholder-en]").forEach(input => {
+            input.placeholder = input.getAttribute(`data-placeholder-${currentLang}`);
+        });
+
+        // Mettre à jour le bouton de soumission
+        const submitBtn = document.querySelector("#submit-btn");
+        if (submitBtn) {
+            submitBtn.value = submitBtn.getAttribute(`data-${currentLang}`);
+        }
+
+        // Réinitialiser l'animation Typed.js avec la nouvelle langue
+        typedInstance.destroy();
+        typedInstance = new Typed(".multiple-text", {
+            strings: typedStrings[currentLang],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
     });
+}
 
-    // Traduire les placeholders
-    document.querySelectorAll("[data-placeholder-en]").forEach(input => {
-        input.placeholder = input.getAttribute(`data-placeholder-${currentLang}`);
-    });
-
-    // Mettre à jour le bouton de soumission
-    const submitBtn = document.querySelector("#submit-btn");
-    if (submitBtn) {
-        submitBtn.value = submitBtn.getAttribute(`data-${currentLang}`);
-    }
-
-    // Réinitialiser l'animation Typed.js avec la nouvelle langue
-    typedInstance.destroy();
-    typedInstance = new Typed(".multiple-text", {
-        strings: typedStrings[currentLang],
-        typeSpeed: 100,
-        backSpeed: 100,
-        backDelay: 1000,
-        loop: true
-    });
-});
-// --- Soumission fluide du formulaire de contact via AJAX ---
+// --- Soumission du formulaire directement vers Formspree (Gmail) ---
 const contactForm = document.querySelector('.contact form');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        const submitBtn = document.querySelector('#submit-btn');
+        const originalBtnValue = submitBtn ? submitBtn.value : '';
+
+        // Indiquer le chargement sur le bouton
+        if (submitBtn) {
+            submitBtn.value = currentLang === 'en' ? 'Sending...' : 'Envoi en cours...';
+            submitBtn.disabled = true;
+        }
 
         const formData = new FormData(this);
 
-        fetch('traitement.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(() => {
-            const successMsg = currentLang === 'en' ? 'Message sent successfully!' : 'Message envoyé avec succès !';
-            alert(successMsg);
-            contactForm.reset();
-        })
-        .catch(error => {
+        try {
+            const response = await fetch('https://formspree.io/f/mvkplqdr', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const successMsg = currentLang === 'en' ? 'Message sent successfully!' : 'Message envoyé avec succès !';
+                alert(successMsg);
+                contactForm.reset();
+            } else {
+                throw new Error('Formspree response was not ok');
+            }
+        } catch (error) {
             console.error('Error:', error);
             const errorMsg = currentLang === 'en' ? 'An error occurred while sending.' : 'Une erreur est survenue lors de l\'envoi.';
             alert(errorMsg);
-        });
+        } finally {
+            // Réactiver le bouton
+            if (submitBtn) {
+                submitBtn.value = originalBtnValue;
+                submitBtn.disabled = false;
+            }
+        }
     });
 }
