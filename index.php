@@ -15,6 +15,15 @@
     <!-- custom css -->
     <link rel="stylesheet" href="Style.css">
 </head>
+    
+    <!-- Banner d'avertissement Mobile Portrait -->
+<div class="rotate-notice">
+    <i class='bx bx-mobile-landscape'></i>
+    <span data-en="💡 For a better experience, turn your phone horizontally!" 
+          data-fr="💡 Pour une meilleure expérience, pivotez votre téléphone à l'horizontale !">
+        💡 Pour une meilleure expérience, pivotez votre téléphone à l'horizontale !
+    </span>
+</div>
 
 <body>
     <!-- Header Design -->
@@ -128,11 +137,18 @@
                 <img src="img/close-up-hyaluronic-acid-tratment.jpg" alt="GOWÉ Perfumes">
                 <div class="portfolio-layer">
                     <h4 data-en="GOWÉ Perfumes Catalog" data-fr="Catalogue GOWÉ Perfumes">GOWÉ Perfumes Catalog</h4>
-                    <p data-en="Dynamic e-commerce catalog featuring product management (e.g. Ameerat Al Arab), shopping cart, and PHP / MySQL backend."
-                       data-fr="Catalogue e-commerce dynamique avec gestion des produits (ex: Ameerat Al Arab), panier d'achat et backend PHP / MySQL.">
-                       Dynamic e-commerce catalog featuring product management (e.g. Ameerat Al Arab), shopping cart, and PHP / MySQL backend.
-                    </p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <p data-en="Dynamic e-commerce catalog featuring product management, shopping cart, and PHP/MySQL backend." 
+   data-fr="Catalogue e-commerce dynamique avec gestion de produits, panier et backend PHP/MySQL.">
+   Catalogue e-commerce dynamique avec gestion de produits, panier et backend PHP/MySQL.
+</p>
+    <a href="https://goweperfumes.infinityfree.me" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   title="Visiter GOWÉ Perfumes" 
+   data-title-en="Visit GOWÉ Perfumes" 
+   data-title-fr="Visiter GOWÉ Perfumes">
+    <i class='bx bx-link-external'></i>
+</a>
                 </div>
             </div>
 
